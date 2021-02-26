@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char board[8][8] = {"rnbqkbnr", "pppppppp", "        ", "        ",
-                    "        ", "        ", "PPPPPPPP", "RNBQKBNR"};
-
 void printBoard() {
   int i, j;
+  char board[8][8] = {"rnbqkbnr", "pppppppp", "        ", "        ",
+                      "        ", "        ", "PPPPPPPP", "RNBQKBNR"};
   printf("\n");
   for (i = 0; i < 8; i++) {
     printf("%d ", 8 - i);
