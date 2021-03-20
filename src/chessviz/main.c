@@ -1,8 +1,12 @@
 #include <libchessviz/desk.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int main()
 {
-    int p, true = 1, false = 0;
+    int true = 1, false = 0;
+    unsigned p,Err_pos = 0;
     char Table_chess[9][9] = {};
     //разметка поля
     Table_chess[0][1] = 'a', Table_chess[0][2] = 'b', Table_chess[0][3] = 'c', Table_chess[0][4] = 'd',
@@ -33,10 +37,8 @@ int main()
     } while (1);
     //запись, проверка и реализация ходов
     char move[20], Err_moves[20] = {}, key; //может запомнить 20 номеров строк с ошибками
-    int Err_pos = 0, Fact_move[4] = {}, Fact_pos = 0;
-    int Read_char = true, Read_number = false, Err_flag = false, Fact_flag = true, Mat_flag = false,
-        White_move = false, Black_move = false;
-
+    int Fact_move[4] = {}, Fact_pos = 0;
+    int Read_char = true, Read_number = false, Err_flag = false;
     do {
         fgets(move, 20, file);
         for (p = 3; p < strlen(move); p++) {
@@ -113,12 +115,6 @@ int main()
                 Table_chess[Fact_move[1]][Fact_move[0]] = ' ';
                 Table_chess[Fact_move[3]][Fact_move[2]] = key;
                 Fact_pos = 0;
-                Fact_flag = true;
-                White_move = true;
-            }
-            if (key == '#') {
-                Mat_flag = true;
-                break;
             }
         }
         if (Err_flag == false) {
