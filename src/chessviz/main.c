@@ -2,7 +2,7 @@
 
 int main()
 {
-    int p;
+    int p, true = 1, false = 0;
     char Table_chess[9][9] = {};
     //разметка поля
     Table_chess[0][1] = 'a', Table_chess[0][2] = 'b', Table_chess[0][3] = 'c', Table_chess[0][4] = 'd',
