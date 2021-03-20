@@ -1,4 +1,4 @@
-APP_NAME = desk
+APP_NAME = chessviz
 LIB_NAME = libchessviz
 
 CFLAGS = -Wall -Wextra -Werror
