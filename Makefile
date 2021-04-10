@@ -1,3 +1,14 @@
+APP_NAME = chessviz
+LIB_NAME = libchessviz
+TEST_NAME = chessviz-test
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -I src -I thirdparty -MP -MMD
+LDFLAGS =
+LDLIBS =
+
+BIN_DIR = bin
 OBJ_DIR = obj
 SRC_DIR = src
 TEST_DIR = test
@@ -32,24 +43,19 @@ test: $(TEST_PATH)
 -include $(DEPS)
 
 $(APP_PATH): $(APP_OBJECTS) $(LIB_PATH)
-        $(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(TEST_PATH): $(TEST_OBJECTS) $(LIB_PATH) $(CTEST_PATH)
-        $(CC) $(CFLAGS) $(CPPFLAGS) $(TEST_OBJECTS) $(LIB_PATH) -o $@ $(LDFLAGS) $(LDLIBS)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TEST_OBJECTS) $(LIB_PATH) -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(LIB_PATH): $(LIB_OBJECTS)
-        ar rcs $@ $^
+	ar rcs $@ $^
 
-$(OBJ_DIR)/%.o: %.c
-        $(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+$(OBJ_DIR)/%.o: %.$(SRC_EXT)
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 .PHONY: clean
 clean:
-        $(RM) $(APP_PATH) $(LIB_PATH)
-        find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
-        find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
-~                                                                                                                                                                                                           
-~                                                                                                                                                                                                           
-~                                                                                                                                                                                                           
-                                                                                                                                                                                          49,1-8      Внизу
-
+	 $(RM) $(APP_PATH) $(LIB_PATH)	
+	 find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
+	 find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
