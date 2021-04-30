@@ -40,4 +40,3 @@ CTEST(suite1, OTRISOVKA_DOSKI)
             ASSERT_EQUAL(Table_chess[i][j], Fact_chess[i][j]);
     }
 }
-
