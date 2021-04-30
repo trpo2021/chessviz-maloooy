@@ -14,7 +14,7 @@ CTEST(suite2, CHEK_MOVE)
 {
     unsigned int q = 0;
 	int p, i, j;
-    char Tablefact_chess[9][9], char Table_chess[9][9];
+    char Tablefact_chess[9][9], Table_chess[9][9];
     FILE* file;
     file = fopen("test", "r");
     for (i = 0; i < 9; i++) {
