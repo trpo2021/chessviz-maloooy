@@ -7,8 +7,7 @@
 void Checking_moves(FILE* file, unsigned int p, char Table_chess[9][9])
 {
     int true = 1, false = 0;
-    char move[20], Err_moves[20] = {},
-                   key; 
+    char move[20], Err_moves[20] = {}, key;
     int Fact_move[4] = {}, Fact_pos = 0;
     unsigned Err_pos = 0;
     int Read_char = true, Read_number = false, Err_flag = false;
@@ -52,8 +51,7 @@ void Checking_moves(FILE* file, unsigned int p, char Table_chess[9][9])
                 // printf("\n%d", Fact_pos);
                 Read_number = true;
                 Read_char = false;
-            }
-            else if (Read_number == true && key >= '1' && key <= '9') {
+            } else if (Read_number == true && key >= '1' && key <= '9') {
                 switch (key) {
                 case '1':
                     Fact_move[Fact_pos] = 1;
